@@ -1,4 +1,3 @@
-#!/usr/bin/env groovy
 pipeline {
     agent any
     stages {
@@ -8,7 +7,6 @@ pipeline {
                 withGradle {
                    sh './gradlew assemble'
                 }
-                
             }
             post {
                 success {
@@ -17,15 +15,15 @@ pipeline {
             }
         }  
 
-        stage('test') {
+        stage('Test') {
             steps {
                 withGradle {
                    sh './gradlew clean test'
                 }
-                post {
-                    always {
-                        junit 'build/test-results/test/TEST-*.xml'
-                    }
+            }
+            post {
+                always {
+                    junit 'build/test-results/test/TEST-*.xml'
                 }
             }
         }

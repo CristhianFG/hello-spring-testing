@@ -6,13 +6,13 @@ pipeline {
         stage('Build') {
             steps {
                 withGradle {
-                   sh './gradlew build'
+                   sh './gradlew assemble'
                 }
                 
             }
             post {
                 success {
-                    archiveartifacts 'build/libs/*.jar'
+                    archiveArtifacts 'build/libs/*.jar'
                 }
             }
         }  
@@ -20,7 +20,7 @@ pipeline {
         stage('test') {
             steps {
                 withGradle {
-                   sh './gradlew test'
+                   sh './gradlew clean test'
                 }
                 post {
                     always {

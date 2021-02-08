@@ -21,11 +21,6 @@ pipeline {
                    sh './gradlew sonarqube'
                 }
             }
-            post {
-                always {
-                   
-                 }
-            }
         }   
     }
 }

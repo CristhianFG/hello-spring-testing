@@ -18,7 +18,7 @@ pipeline {
         stage('Test') {
             steps {
                 withGradle {
-                   sh './gradlew clean check'
+                   sh './gradlew sonarqube'
                 }
             }
             post {

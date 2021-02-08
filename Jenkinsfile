@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 withGradle {
-                   sh './gradlew assemble'
+                    sh './gradlew assemble'
                 }
             }
             post {
@@ -17,9 +17,9 @@ pipeline {
 
         stage('Test') {
             steps {
-                withGradle {
-                   sh './gradlew sonarqube'
-                }
+                configFileProvider([configFile(fileId: 'gradle.properties', targetLocation: 'gradle.properties')]) {
+                         sh './gradlew sonarqube'
+                  }
             }
         }   
     }

@@ -5,6 +5,7 @@ plugins {
         id 'info.solidsoft.pitest' version '1.5.1'
         id 'checkstyle'
         id 'pmd'
+	id 'spotbugs'
 }
 
 group = 'com.example'
@@ -36,5 +37,8 @@ checkstyle {
 }
 
 pmd {
+        ignoreFailures = true
+}
+spotbugs {
         ignoreFailures = true
 }

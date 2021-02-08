@@ -18,7 +18,7 @@ pipeline {
         stage('Test') {
             steps {
                 withGradle {
-                   sh './gradlew clean test check'
+                   sh './gradlew clean spotbugs'
                 }
             }
             post {
@@ -26,19 +26,6 @@ pipeline {
                     junit 'build/test-results/test/TEST-*.xml'
                  }
             }
-        }
-
-        stage('QA') {
-            steps {
-                 withGradle{
-                     sh './gradlew check'
-                 }
-            }
-            post {
-                 always {
-                      recordIssues enabledForFailure: true, tool: pmdParser(pattern: 'build/reports/pmd/*.xml')
-                 }
-            }
-        }     
+        }   
     }
 }

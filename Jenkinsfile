@@ -15,7 +15,7 @@ pipeline {
             }
         }  
 
-        stage('Test') {
+        stage('Security') {
             steps {
                 sh './gradlew dependencyCheckAnalyze'
             }

@@ -21,7 +21,7 @@ pipeline {
             }
             post {
                 always {
-                     dependencyCheckPublisher pattern: 'build/reports/dependency-check-report.json'
+                     dependencyCheckPublisher pattern: 'build/reports/dependency-check-report.html'
                 }
             }
         }   

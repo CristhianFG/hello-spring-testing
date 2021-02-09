@@ -19,6 +19,11 @@ pipeline {
             steps {
                 sh './gradlew dependencyCheckAnalyze'
             }
+            post {
+                always {
+                     dependencyCheckPublisher pattern: 'build/reports/dependency-check-report.json'
+                }
+            }
         }   
     }
 }

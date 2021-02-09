@@ -29,3 +29,7 @@ test {
 spotbugs {
         ignoreFailures = true
 }
+
+dependencyCheck {
+    format='ALL'
+}

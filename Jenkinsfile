@@ -39,6 +39,14 @@ pipeline {
                       recordIssues enabledForFailure: true, tool: pmdParser(pattern: 'build/reports/pmd/*.xml')
                  }
             }
+        }
+
+        stage('Artefacto'){
+            steps {
+                 withGradle {
+                     sh './gradlew publish'
+                 }
+            }
         }     
     }
 }

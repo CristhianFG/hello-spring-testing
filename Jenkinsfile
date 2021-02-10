@@ -44,7 +44,8 @@ pipeline {
         stage('Artefacto'){
             steps {
                  // withCredentials([string(credentialsId: 'gitLabPrivateToken', variable: 'TOKEN')]) {
-                    withCredentials([string(credentialsId: 'apacheArchiva', usernameVariable: 'username', passwordVariable: 'password')]) { 
+                 // withCredentials([string(credentialsId: 'apacheArchiva', usernameVariable: 'username', passwordVariable: 'password')]) { 
+                 withCredentials([string(credentialsId: 'sonatypeNexus', usernameVariable: 'username', passwordVariable: 'password')]) {  
                        sh './gradlew publish'
                  } 
             }

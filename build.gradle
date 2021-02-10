@@ -45,29 +45,44 @@ publishing {
                 bootJava(MavenPublication) {
                         artifact bootJar
                         version = '0.0.2-SNAPSHOT'
-                       // version = '1.0' + { System.getenv('BUILD_NUMBER') ?: '0' } + '-SNAPSHOT'
+                        //version = '1.0' + { System.getenv('BUILD_NUMBER') ?: '0' } + '-SNAPSHOT'
                         //groupId = 'com.sinensia'
                         //artifactId = 'helloSpringTesting'
                 }
         }
         repositories {
+
+            /*OPCION A
+              maven {
+                url "http://10.250.1.5:8929/api/v4/projects/36/packages/maven"
+                name "GitLab"
+                credentials(HttpHeaderCredentials) {
+                    name = 'Private-Token'
+                    value = System.getenv('TOKEN')
+                }*/
+
+            /*OPCION B
+              maven {
+                url "http://localhost:9082/repository/snapshots"
+                credentials {
+                    username System.getenv('username')
+                    password System.getenv('password')
+                }*/
+
+            //OPCION C
             maven {
-                //url "http://10.250.1.5:8929/api/v4/projects/36/packages/maven"
-                //url "http://localhost:9082/repository/snapshots"
                 url "http://localhost:9084/repository/maven-snapshots"
-                //name "GitLab"
-                //credentials(HttpHeaderCredentials) {
-                  credentials {
-                    //name = 'Private-Token'
-                    //value = System.getenv('TOKEN')
+                credentials {
                     username 'admin'
-                    password 'A1B2C3D4'
+                    password 'patata'
                     //username System.getenv('username')
                     //password System.getenv('password')
                 }
-               // authentication {
-               //     header(HttpHeaderAuthentication)
-               // }
+
+            
+               /* authentication {
+                    header(HttpHeaderAuthentication)
+                } */
             }
         }
 }

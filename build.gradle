@@ -53,14 +53,17 @@ publishing {
         repositories {
             maven {
                 //url "http://10.250.1.5:8929/api/v4/projects/36/packages/maven"
-                url "http://localhost:9082/repository/snapshots"
+                //url "http://localhost:9082/repository/snapshots"
+                url "http://localhost:9084/repository/maven-snapshots"
                 //name "GitLab"
                 //credentials(HttpHeaderCredentials) {
                   credentials {
                     //name = 'Private-Token'
                     //value = System.getenv('TOKEN')
-                    username System.getenv('username')
-                    password System.getenv('password')
+                    username 'admin'
+                    password 'A1B2C3D4'
+                    //username System.getenv('username')
+                    //password System.getenv('password')
                 }
                // authentication {
                //     header(HttpHeaderAuthentication)

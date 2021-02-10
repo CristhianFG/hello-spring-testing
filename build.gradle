@@ -59,8 +59,8 @@ publishing {
                   credentials {
                     //name = 'Private-Token'
                     //value = System.getenv('TOKEN')
-                    username = System.getenv('username')
-                    password = System.getenv('password')
+                    username System.getenv('username')
+                    password System.getenv('password')
                 }
                // authentication {
                //     header(HttpHeaderAuthentication)

@@ -43,7 +43,7 @@ pipeline {
 
         stage('Artefacto'){
             steps {
-                  withCredentials([string(credentialsId: 'gitLabPrivateToken', variable: 'TOKEN')]) {
+                  withCredentials([string(credentialsId: 'gitLabPrivateToken', variable: 'gitLabPrivateToken')])
                       sh './gradlew publish'
                   }
             }

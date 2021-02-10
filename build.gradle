@@ -73,10 +73,8 @@ publishing {
             maven {
                 url "http://localhost:9084/repository/maven-snapshots"
                 credentials {
-                    username 'admin'
-                    password 'patata'
-                    //username System.getenv('username')
-                    //password System.getenv('password')
+                    username System.getenv('username')
+                    password System.getenv('password')
                 }
 
             

@@ -5,6 +5,7 @@ plugins {
         id 'info.solidsoft.pitest' version '1.5.1'
         id 'checkstyle'
         id 'pmd'
+        id 'maven-publish'
 }
 
 group = 'com.example'
@@ -37,4 +38,28 @@ checkstyle {
 
 pmd {
         ignoreFailures = true
+}
+
+publishing {
+        publications {
+                bootJava(MavenPublication) {
+                        artifact bootJar
+                        //version = '0.0.2-SNAPSHOT'
+                        //groupId = 'com.sinensia'
+                        //artifactId = 'helloSpringTesting'
+                }
+        }
+        repositories {
+            maven {
+                url "http://10.250.1.5:8929/api/v4/projects/36/packages/maven"
+                name "GitLab"
+                credentials(HttpHeaderCredentials) {
+                    name = 'Private-Token'
+                    value = System.getEnv('TOKEN')
+                }
+                authentication {
+                    header(HttpHeaderAuthentication)
+                }
+            }
+        }
 }

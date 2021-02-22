@@ -6,6 +6,7 @@ plugins {
         id 'checkstyle'
         id 'pmd'
         id 'maven-publish'
+	id "org.owasp.dependencycheck" version "6.1.0"
 }
 
 group = 'com.example'

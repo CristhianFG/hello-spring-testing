@@ -41,6 +41,10 @@ pmd {
         ignoreFailures = true
 }
 
+dependencyCheck {
+    format='ALL'
+}
+
 publishing {
         publications {
                 bootJava(MavenPublication) {

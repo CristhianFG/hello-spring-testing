@@ -46,6 +46,10 @@ dependencyCheck {
     format='ALL'
 }
 
+spotbugs {
+        ignoreFailures = true
+}
+
 publishing {
         publications {
                 bootJava(MavenPublication) {
